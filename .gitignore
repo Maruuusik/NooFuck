@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Данные и логи (НЕ загружаем на GitHub!)
+users.json
+*.log
+*.db
+*.sqlite3
+database/
+
+# Ключи и конфигурации (ОЧЕНЬ ВАЖНО!)
+config.py
+.env
+secrets.py
+key.json
+*.key
+
+# Временные файлы
+.DS_Store
+Thumbs.db
+temp/
+tmp/
+
+# Системные
+*.swp
+*.swo
+*~
