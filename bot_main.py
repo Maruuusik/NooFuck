@@ -1900,7 +1900,19 @@ if __name__ == '__main__':
     test_data = load_google_sheets_data()
     print(f"📊 Загружено пользователей: {len(test_data)}")
 
-    try:
-        bot.polling(none_stop=True, interval=3, timeout=60)
-    except Exception as e:
-        print(f"❌ Ошибка: {e}")
+    # Удаляем вебхук на всякий случай
+    bot.remove_webhook()
+    
+    print("✅ Бот запускается в режиме long-polling...")
+    
+    # Бесконечный цикл с перезапуском при ошибках
+    while True:
+        try:
+            print("🔄 Запуск polling...")
+            bot.infinity_polling(timeout=60, long_polling_timeout=60)
+            
+        except Exception as e:
+            print(f"❌ Ошибка в polling: {e}")
+            print("🔄 Перезапуск через 10 секунд...")
+            time.sleep(10)
+
